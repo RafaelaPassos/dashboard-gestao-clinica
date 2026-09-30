@@ -12,7 +12,8 @@ A solução cobre todo o ciclo de vida dos dados: da geração sintética e pers
 ---
 
 ## 🖼️ Preview do Dashboard
-![Dashboard Executivo de Gestão Clínica](dashboard)
+<img width="1162" height="653" alt="dashboard" src="https://github.com/user-attachments/assets/e4cc0d9e-3531-4c01-9600-058dd42ac477" />
+
 ---
 
 ## 🏗️ Arquitetura da Solução
@@ -40,8 +41,11 @@ A modelagem segue o padrão **Star Schema**, garantindo relacionamentos limpos d
 * **Faturamento Total:**
   ```dax
   Faturamento Total = SUM(consultas[valor])
+  
+ * **Consultas Não Comparecidas (%):**
+  ```dax
   Consultas Não Comparecidas (%) = 
-DIVIDE(
-    CALCULATE(COUNT(consultas[id_consulta]), consultas[status] = "Faltou"),
-    COUNT(consultas[id_consulta])
-)
+  DIVIDE(
+      CALCULATE(COUNT(consultas[id_consulta]), consultas[status] = "Faltou"),
+      COUNT(consultas[id_consulta])
+  )
